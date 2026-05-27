@@ -1,54 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
 
-    <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./CSS/index.css">
+ 
 </head>
-
 <body>
 
-    <div class="calculator">
+<div class="calculator">
 
-        <input type="text" id="display" class="display" placeholder="0">
+<input type="text" id="display" class="display" placeholder="0" >
 
-        <div class="buttons">
-            <button class="clear" onClick="ClearDisplay()">C</button>
-            <button onClick="ClearData()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path fill="currentColor"
-                        d="m11.4 16l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L18 9.4L16.6 8L14 10.6L11.4 8L10 9.4l2.6 2.6l-2.6 2.6zM9 20q-.475 0-.9-.213t-.7-.587L2 12l5.4-7.2q.275-.375.7-.587T9 4h11q.825 0 1.413.587T22 6v12q0 .825-.587 1.413T20 20zm-4.5-8L9 18h11V6H9zm10 0" />
-                </svg>
-            </button>
-            <button class="operator" onClick="opt('/')">/</button>
-            <button class="operator" onClick="opt('*')">*</button>
+  <div class="buttons">
 
-            <button onClick="Dataclicked(7)">7</button>
-            <button onClick="Dataclicked(8)">8</button>
-            <button onClick="Dataclicked(9)">9</button>
-            <button class="operator" onClick="opt('-')">-</button>
+    <button onclick="ClearDisplay()" class="clear">C</button>
+    <button class="back" onclick="Back()">⌫</button>
+    <button onclick="opt('/')" class="operator">/</button>
+    <button onclick="opt('*')" class="operator">*</button>
 
-            <button onClick="Dataclicked(4)">4</button>
-            <button onClick="Dataclicked(5)">5</button>
-            <button onClick="Dataclicked(6)">6</button>
-            <button class="operator" onClick="opt('+')">+</button>
+    <button onclick="dataclicked('7')">7</button>
+    <button onclick="dataclicked('8')">8</button>
+    <button onclick="dataclicked('9')">9</button>
+    <button onclick="opt('-')" class="operator">-</button>
 
-            <button onClick="Dataclicked(1)">1</button>
-            <button onClick="Dataclicked(2)">2</button>
-            <button onClick="Dataclicked(3)">3</button>
-            <button class="operator" onClick="opt('%')">%</button>
+    <button onclick="dataclicked('4')">4</button>
+    <button onclick="dataclicked('5')">5</button>
+    <button onclick="dataclicked('6')">6</button>
+    <button onclick="opt('+')" class="operator">+</button>
 
-            <button class="zero" onClick="Dataclicked(0)">0</button>
-            <button onClick="Dataclicked('.')">.</button>
-            <button class="equal" onClick="ResultData()">=</button>
-        </div>
+    <button onclick="dataclicked('1')">1</button>
+    <button onclick="dataclicked('2')">2</button>
+    <button onclick="dataclicked('3')">3</button>
+    <button onclick="opt('%')" class="operator">%</button>
 
-    </div>
-    <script src="./script.js"></script>
+    <button onclick="dataclicked('0')" class="zero">0</button>
+    <button onclick="dataclicked('.')">.</button>
+    <button onclick="ResultData()" class="equal">=</button>
+
+  </div>
+
+</div>
+
+<script src="./script.js"></script>
 </body>
-
 </html>

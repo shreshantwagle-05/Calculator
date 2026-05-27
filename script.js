@@ -5,38 +5,50 @@ let result = "";
 
 let display = document.getElementById("display");
 
-function Dataclicked(a) {
-  console.log(operator.length);
-  if (operator.length > 0) {
+function dataclicked(a) {
+  if (operator.length == 0) {
     firstvalue += a;
-    display.value = firstvalue;
   } else {
-    console.log("first");
     secondvalue += a;
-    display.value = secondvalue;
   }
+
+  display.value = firstvalue + operator + secondvalue;
 }
 
 function opt(a) {
   operator = a;
-  display.value = operator;
+  display.value = firstvalue + operator + secondvalue;
 }
 
 function ResultData() {
   if (operator == "+") {
     result = Number(firstvalue) + Number(secondvalue);
-  } else if (operator == "-") {
+  } 
+  else if (operator == "-") {
     result = Number(firstvalue) - Number(secondvalue);
-  } else if (operator == "*") {
+  } 
+  else if (operator == "*") {
     result = Number(firstvalue) * Number(secondvalue);
-  } else if (operator == "/") {
-    result = Number(firstvalue) / Number(secondvalue);
-  } else {
-    result = "Invalid Operator";
+  } 
+  else if (operator == "/") {
+    if (secondvalue === "0") {
+      result = "Error: Division by zero";
+    } 
+    else {
+      result = Number(firstvalue) / Number(secondvalue);
+    }
+   
+  } 
+  else {
+    result = "HAHAHA! Try Again!";
   }
-  console.log(result);
+
   display.value = result;
-  }
+
+  firstvalue = result.toString();
+  secondvalue = "";
+  operator = "";
+}
 
   function ClearDisplay(){
     firstvalue = '';
@@ -46,13 +58,18 @@ function ResultData() {
     display.value = '';
   }
 
-  function ClearData(){
-    if(operator.length>0){
-      firstvalue = firstvalue.slice(0, -1);
-      display.value = firstvalue;
-    }else{
-      secondvalue = secondvalue.slice(0, -1);
-      display.value = secondvalue;
-    }
+ function Back() {
+  if (operator.length == 0) {
+    firstvalue = firstvalue.slice(0, -1);
+    display.value = firstvalue;
+    
+  } 
+  else if (secondvalue.length == 0) {
+    operator = '';
+    display.value = firstvalue;
   }
-  
+  else {
+    secondvalue = secondvalue.slice(0, -1);
+    display.value = secondvalue;
+   }
+}
